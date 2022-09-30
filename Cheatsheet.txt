@@ -1,0 +1,4 @@
+#MIGRATION
+2 delete type :
+  softDelete --> the data still in the database but didn't render in the view (it will create deleted_at column)
+  hardDelete 

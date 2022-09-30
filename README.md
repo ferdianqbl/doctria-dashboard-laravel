@@ -4,3 +4,4 @@
 - Laravel
 - Jetstream
 - Tailwind
+- DBeaver --> for database management
