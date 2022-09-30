@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('config_payments', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) {
             $table->id();
+            $table->integer('specialist_id');
+            $table->string('name');
             $table->string('fee');
-            $table->string('vat');
+            $table->longText('photo');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('config_payments');
+        Schema::dropIfExists('doctors');
     }
 };
