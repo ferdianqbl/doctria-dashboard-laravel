@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('appointment_id');
-            $table->varchar('fee_doctor')->nullable();
-            $table->varchar('fee_specialist')->nullable();
-            $table->varchar('fee_hospital')->nullable();
-            $table->varchar('sub_total')->nullable();
-            $table->varchar('vat')->nullable();
-            $table->varchar('total')->nullable();
+            $table->string('fee_doctor')->nullable();
+            $table->string('fee_specialist')->nullable();
+            $table->string('fee_hospital')->nullable();
+            $table->string('sub_total')->nullable();
+            $table->string('vat')->nullable();
+            $table->string('total')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
