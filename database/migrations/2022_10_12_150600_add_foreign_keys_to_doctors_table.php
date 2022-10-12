@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('doctors', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('specialist_id')->nullable()->index('fk_doctors_to_specialists');
-            $table->string('name');
-            $table->string('fee');
-            $table->longText('photo');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('doctors', function (Blueprint $table) {
+            $table->foreign('specialist_id', 'fk_doctors_to_specialists')->references('id')->on('specialists')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctors');
+        Schema::table('doctors', function (Blueprint $table) {
+            $table->dropForeign('fk_doctors_to_specialists');
+        });
     }
 };
