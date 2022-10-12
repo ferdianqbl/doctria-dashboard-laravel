@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            //
+            $table->foreign('appointment_id', 'fk_transactions_to_appointments')->references('id')->on('appointments')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            //
+            $table->dropForeign('fk_transactions_to_appointments');
         });
     }
 };
