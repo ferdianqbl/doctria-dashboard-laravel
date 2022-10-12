@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_users', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->integer('doctor_id');
             $table->integer('user_id');
-            $table->integer('type_user_id');
-            $table->string('age');
-            $table->string('contact')->nullable();
-            $table->longText('address')->nullable();
-            $table->longText('photo')->nullable();
-            $table->enum('gender', [1, 2])->nullable();
+            $table->integer('consultation_id');
+            $table->enum('level', [1, 2, 3]);
+            $table->date('date')->nullable();
+            $table->time('time')->nullable();
+            $table->enum('status', [1, 2]);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_users');
+        Schema::dropIfExists('appointments');
     }
 };
