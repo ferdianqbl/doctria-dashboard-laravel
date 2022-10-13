@@ -13,7 +13,21 @@ class DetailUser extends Model
 
     public $table = 'detail_users';  // point to table name
 
-    protected $dates = [  // to save date format
+    // must type date yyyy-mm-dd hh:mm:ss
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable = [
+        'user_id',
+        'type_user_id',
+        'contact',
+        'address',
+        'photo',
+        'gender',
+        'age',
         'created_at',
         'updated_at',
         'deleted_at',
